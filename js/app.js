@@ -3980,6 +3980,26 @@
             if (headerLabel) headerLabel.classList.add("active");
         }), 5e3);
         aos.init();
+        const muteButtons = document.querySelectorAll(".video-step__mute");
+        muteButtons.forEach((function(muteButton) {
+            muteButton.addEventListener("click", (function() {
+                const videoContainer = muteButton.closest(".video-step__video");
+                const video = videoContainer.querySelector("video");
+                if (video.muted) {
+                    video.muted = false;
+                    video.setAttribute("autoplay", true);
+                    video.setAttribute("loop", true);
+                    video.play();
+                    videoContainer.classList.add("active");
+                } else {
+                    video.muted = true;
+                    video.removeAttribute("autoplay");
+                    video.removeAttribute("loop");
+                    video.pause();
+                    videoContainer.classList.remove("active");
+                }
+            }));
+        }));
         window["FLS"] = false;
     })();
 })();
