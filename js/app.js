@@ -3877,6 +3877,37 @@
                 },
                 on: {}
             });
+            if (document.querySelector(".question__slider")) new swiper_core_Swiper(".question__slider", {
+                modules: [ Navigation ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                speed: 800,
+                navigation: {
+                    prevEl: ".question__swiper-button-prev",
+                    nextEl: ".question__swiper-button-next"
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    640: {
+                        slidesPerView: 2.4,
+                        spaceBetween: 30
+                    },
+                    800: {
+                        slidesPerView: 3.35,
+                        spaceBetween: 30
+                    },
+                    1024: {
+                        slidesPerView: 4.75,
+                        spaceBetween: 30
+                    }
+                },
+                on: {}
+            });
         }
         window.addEventListener("load", (function(e) {
             initSliders();
